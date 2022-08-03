@@ -1,3 +1,4 @@
+<div id="top"></div>
 # gta5bulkrename
 
 <!-- ABOUT THE PROJECT -->
@@ -30,4 +31,4 @@ Instructions:
 
 [@Milken01](https://linktr.ee/Milken01)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="center">(<a href="#top">back to top</a>)</p>

@@ -1,8 +1,10 @@
 import pathlib
-import string
+
+num = 000
+folder = "stuff"
+path = pathlib.Path.cwd() / folder
                     
-def rename(num):
-    path = pathlib.Path('.') / "stuff"    
+def rename():  
     counter = 1
     for file in path.iterdir():
         if file.is_file():
@@ -11,6 +13,7 @@ def rename(num):
             counter += 1
     
 def start():
+    check()
     print("""
 ░█▀▀░▀█▀░█▀█░█▀▀░░░█▀▄░█░█░█░░░█░█░█▀▄░█▀▀░█▀█░█▀█░█▄█░█▀▀
 ░█░█░░█░░█▀█░▀▀▄░░░█▀▄░█░█░█░░░█▀▄░█▀▄░█▀▀░█░█░█▀█░█░█░█▀▀
@@ -20,6 +23,11 @@ def start():
     num = input("New number:\n")
     if(num == "c"):
         exit()
-    rename(num)
+    rename()
+    
+def check():
+    if not(path.exists()):
+        path.mkdir()
+        print("First use.")
 
 start()    
