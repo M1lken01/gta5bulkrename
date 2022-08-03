@@ -19,7 +19,8 @@ Run `main.exe` to start the tool.
 
 Instructions:
 * Run the program
-* Choose the option you want
+* Move .ydd and .ytd files to ./stuff folder
+* Choose the option you want to do with them
 
 <!-- CONTACT -->
 ## Contact
