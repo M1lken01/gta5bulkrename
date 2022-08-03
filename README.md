@@ -13,8 +13,6 @@ What it does:
 * This
 * And that
 
-
-
 <!-- USAGE EXAMPLES -->
 ## Usage
 
@@ -23,8 +21,6 @@ Run `main.py` to start the tool.
 Instructions:
 * temp
 * temp
-
-
 
 <!-- CONTACT -->
 ## Contact
