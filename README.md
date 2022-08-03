@@ -1,4 +1,3 @@
-<div id="top"></div>
 # gta5bulkrename
 
 <!-- ABOUT THE PROJECT -->
@@ -9,7 +8,7 @@
 Description...
 
 What it does:
-* Renames **.ytd** files
+* Renames **.ytd** and **.ydd** files
 * This
 * And that
 
