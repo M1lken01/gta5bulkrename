@@ -5,7 +5,7 @@
 
 ![SCREENSHOT](https://i.imgur.com/ToXfJuG.png)
 
-Description...
+**Back up your files before modifying them**
 
 What it does:
 * Renames **.ytd** and **.ydd** files
@@ -15,11 +15,11 @@ What it does:
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Run `main.py` to start the tool.
+Run `main.exe` to start the tool.
 
 Instructions:
-* temp
-* temp
+* Run the program
+* Choose the option you want
 
 <!-- CONTACT -->
 ## Contact
