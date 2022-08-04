@@ -50,27 +50,32 @@ def rename_complex():
     
 def rename_rearrange():
     current_slot = "accs"
+    is_first = True
     counter = 1
     ydd_count = 0
     ytd_count = 0
     for file in path.iterdir():
         if file.is_file():
+            if is_first:
+                is_first = False
+                current_slot = file.name[0:4]
             if not current_slot == file.name[0:4]:
-                    current_slot = file.name[0:4]
-                    ydd_count = 0
-                    ytd_count = -1
+                current_slot = file.name[0:4]
+                ydd_count = 0
+                ytd_count = -1
+                print(current_slot)
             if file.suffix == ".ydd":
-                new_file = file.name[0:4] + "_" + str(f"{ydd_count:03}") + "_u" + file.suffix
-                file.rename(path / new_file)
-                #print(file.name[0:4] + "_" + str(f"{ydd_count:03}") + "_u" + file.suffix)
+                #new_file = file.name[0:4] + "_" + str(f"{ydd_count:03}") + "_u" + file.suffix
+                #file.rename(path / new_file)
+                print(file.name[0:4] + "_" + str(f"{ydd_count:03}") + "_u" + file.suffix)
                 ydd_count += 1
             if file.suffix == ".ytd":
                 if not chr(ord('`')+counter) == file.name[14:15]:
                     counter = 1
                     ytd_count += 1
-                new_file = file.name[0:4] + "_diff_" + str(f"{ytd_count:03}") + "_" + chr(ord('`')+counter) + "_uni" + file.suffix
-                file.rename(path / new_file)
-                #print(file.name[0:4] + "_diff_" + str(f"{ytd_count:03}") + "_" + chr(ord('`')+counter) + "_uni" + file.suffix)
+                #new_file = file.name[0:4] + "_diff_" + str(f"{ytd_count:03}") + "_" + chr(ord('`')+counter) + "_uni" + file.suffix
+                #file.rename(path / new_file)
+                print(file.name[0:4] + "_diff_" + str(f"{ytd_count:03}") + "_" + chr(ord('`')+counter) + "_uni" + file.suffix)
                 counter += 1
     cmds()
     
