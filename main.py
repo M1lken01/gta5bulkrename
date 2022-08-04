@@ -21,17 +21,18 @@ def rename_simple():
 
 def rename_complex():
     slot = input("Type (jbib, decl, task, accs, teef, feet, hand, lowr, uppr, hair, berd):\n")
-    if slot == "1":slot = "jbib"
-    if slot == "2":slot = "decl"
-    if slot == "3":slot = "task"
-    if slot == "4":slot = "accs"
-    if slot == "5":slot = "teef"
-    if slot == "6":slot = "feet"
-    if slot == "7":slot = "hand"
-    if slot == "8":slot = "lowr"
-    if slot == "9":slot = "uppr"
-    if slot == "10":slot = "hair"
-    if slot == "11":slot = "berd"
+    match slot:
+        case "1":slot = "jbib"
+        case "2":slot = "decl"
+        case "3":slot = "task"
+        case "4":slot = "accs"
+        case "5":slot = "teef"
+        case "6":slot = "feet"
+        case "7":slot = "hand"
+        case "8":slot = "lowr"
+        case "9":slot = "uppr"
+        case "10":slot = "hair"
+        case "11":slot = "berd"
     numold = input("Old number:\n")
     numnew = input("New number:\n")
     if numold == "c" or numnew == "c" or slot == "c":
@@ -65,17 +66,17 @@ def rename_rearrange():
                 ytd_count = -1
                 print(current_slot)
             if file.suffix == ".ydd":
-                #new_file = file.name[0:4] + "_" + str(f"{ydd_count:03}") + "_u" + file.suffix
-                #file.rename(path / new_file)
-                print(file.name[0:4] + "_" + str(f"{ydd_count:03}") + "_u" + file.suffix)
+                new_file = file.name[0:4] + "_" + str(f"{ydd_count:03}") + "_u" + file.suffix
+                file.rename(path / new_file)
+                #print(file.name[0:4] + "_" + str(f"{ydd_count:03}") + "_u" + file.suffix)
                 ydd_count += 1
             if file.suffix == ".ytd":
                 if not chr(ord('`')+counter) == file.name[14:15]:
                     counter = 1
                     ytd_count += 1
-                #new_file = file.name[0:4] + "_diff_" + str(f"{ytd_count:03}") + "_" + chr(ord('`')+counter) + "_uni" + file.suffix
-                #file.rename(path / new_file)
-                print(file.name[0:4] + "_diff_" + str(f"{ytd_count:03}") + "_" + chr(ord('`')+counter) + "_uni" + file.suffix)
+                new_file = file.name[0:4] + "_diff_" + str(f"{ytd_count:03}") + "_" + chr(ord('`')+counter) + "_uni" + file.suffix
+                file.rename(path / new_file)
+                #print(file.name[0:4] + "_diff_" + str(f"{ytd_count:03}") + "_" + chr(ord('`')+counter) + "_uni" + file.suffix)
                 counter += 1
     cmds()
     
@@ -93,9 +94,13 @@ def start():
         
 def cmds():
     num = input("'1' for simple rename(rename all), '2' for complex rename(rename selected only), '3' for rearrange rename(rename all to lowest to highest)\n")
-    if num == "1":rename_simple()
-    if num == "2":rename_complex()
-    if num == "3":rename_rearrange()
+    match num:
+        case "1":
+            rename_simple()
+        case "2":
+            rename_complex()
+        case "3":
+            rename_rearrange()
 
 if __name__ == "__main__":
     start()  
