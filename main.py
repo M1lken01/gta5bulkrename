@@ -93,7 +93,7 @@ def start():
     cmds()
         
 def cmds():
-    num = input("'1' for simple rename(rename all), '2' for complex rename(rename selected only), '3' for rearrange rename(rename all to lowest to highest)\n")
+    num = input("'1' for simple rename(rename all), '2' for complex rename(rename selected only), '3' for rearrange rename(rename all from lowest to highest)\n")
     match num:
         case "1":
             rename_simple()
