@@ -64,20 +64,28 @@ def rename_rearrange():
                 current_slot = file.name[0:4]
                 ydd_count = 0
                 ytd_count = -1
-                print(current_slot)
             if file.suffix == ".ydd":
                 new_file = file.name[0:4] + "_" + str(f"{ydd_count:03}") + "_u" + file.suffix
+                print(f"/Old {file.name}\\")
+                print(f"\\New {new_file}/\n")
                 file.rename(path / new_file)
-                #print(file.name[0:4] + "_" + str(f"{ydd_count:03}") + "_u" + file.suffix)
                 ydd_count += 1
             if file.suffix == ".ytd":
                 if not chr(ord('`')+counter) == file.name[14:15]:
                     counter = 1
                     ytd_count += 1
                 new_file = file.name[0:4] + "_diff_" + str(f"{ytd_count:03}") + "_" + chr(ord('`')+counter) + "_uni" + file.suffix
+                print(f"/Old {file.name}\\")
+                print(f"\\New {new_file}/\n")
                 file.rename(path / new_file)
-                #print(file.name[0:4] + "_diff_" + str(f"{ytd_count:03}") + "_" + chr(ord('`')+counter) + "_uni" + file.suffix)
                 counter += 1
+    cmds()
+
+def rename_remove():
+    for file in path.iterdir():
+        if file.is_file() and file.name.find("^") >= 1:
+            new_file = file.name.split("^")[1]
+            file.rename(path / new_file)
     cmds()
     
 def start():
@@ -93,7 +101,7 @@ def start():
     cmds()
         
 def cmds():
-    num = input("'1' for simple rename(rename all), '2' for complex rename(rename selected only), '3' for rearrange rename(rename all from lowest to highest)\n")
+    num = input("'1' for simple rename(rename all)\n'2' for complex rename(rename selected only)\n'3' for rearrange rename(rename all from lowest to highest)\n'4' to remove things before '^'\n")
     match num:
         case "1":
             rename_simple()
@@ -101,6 +109,8 @@ def cmds():
             rename_complex()
         case "3":
             rename_rearrange()
+        case "4":
+            rename_remove()
 
 if __name__ == "__main__":
     start()  
